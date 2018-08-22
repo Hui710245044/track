@@ -1,0 +1,80 @@
+import {Router} from 'express';
+
+const router = Router();
+
+import {reprocess_tracks, track_list} from '../service/track-number';
+import {process_day_tracks, day_queue_panes, day_queue_data} from '../service/day-track';
+import {channels_queue, channel_queue} from '../service/channel-queue';
+import Channels from '../channel';
+import {channel_spider_worker_get, channel_spider_worker_set} from "../redis/track";
+
+router.get('/track-list', async function (req, res) {
+    let where = {};
+    if(req.query.track){
+        where.track = req.query.track.split(',');
+    }
+    if(req.query.channels) {
+        where.channel = req.query.channels.split(',')
+    }
+    let page = 1;
+    if(req.query.page){
+        page = req.query.page;
+    }
+    let pageSize = 20;
+    if(req.query.pageSize){
+        pageSize = req.query.pageSize;
+    }
+    const result = await track_list(where, page, pageSize);
+    res.json(result)
+});
+
+router.get('/reprocess_tracks', async function (req, res) {
+    await reprocess_tracks();
+    res.json({ok: 'ok'})
+});
+
+router.get('/process_day_tracks', async function (req, res) {
+    await process_day_tracks();
+    res.json({ok: 'ok'})
+});
+
+router.get('/channels-queue', async function (req, res) {
+    const queues = await channels_queue();
+    res.json(queues);
+});
+router.get('/channel-queue', async function (req, res) {
+    const queues = await channel_queue(req.query.channel);
+    res.json(queues);
+});
+
+router.get('/channels', async function (req, res) {
+    const channels = Object.keys(Channels).map(channel =>{
+        return Object.assign({}, Channels[channel],{channel});
+    });
+    res.json(channels);
+});
+
+router.get('/channels-worker', async function (req, res){
+    const channels = await Promise.all(Object.keys(Channels).map(async channel =>{
+        return Object.assign({},Channels[channel],{channel}, {value:await channel_spider_worker_get(channel)})
+    }));
+    res.json(channels);
+});
+
+router.post('/channels-worker', async function (req, res) {
+    await req.body.forEach(async({channel,value}) =>{
+        await channel_spider_worker_set(channel, value)
+    });
+    res.json({message:'保存成功'});
+});
+
+router.get('/day-queue-panes', async function(req, res){
+    res.json(await day_queue_panes());
+});
+
+router.get('/day-queue-data', async function(req, res){
+    const data = await day_queue_data(req.query.day);
+    res.json(data);
+});
+
+export default router;

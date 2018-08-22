@@ -1,0 +1,15 @@
+import axios from 'axios';
+
+const instrance = axios.create({
+    baseURL:'http://172.19.23.35:3000'
+});
+
+export default {
+    install(Vue, options = {}){
+        Vue.mixin({
+            beforeCreate(){
+                this.$http = instrance;
+            }
+        })
+    }
+}

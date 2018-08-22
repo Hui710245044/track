@@ -1,0 +1,61 @@
+
+import Tracking from '../model/tracking-list'
+
+
+// 创建
+async function create(doc){
+    console.log(doc);
+    Tracking.create(doc).then((root)=>{
+        console.log(root);
+    });
+}
+// 更新
+
+async function update(doc) {
+    let select     = {tracking:doc.tracking};
+    let update     = {$set : doc};
+    let options    = {upsert : true};
+    Tracking.update(select, update, options, function(error){
+        if(error) {
+            console.log(error);
+        } else {
+            console.log('update ok!');
+        }
+    });
+}
+
+
+
+// 查找
+async function findTracking(data) {
+    let {excelName, page, pageSize} = data;
+    page = Number(page);
+    pageSize = Number(pageSize);
+    let len = await Tracking.find({excelName}).count();
+    let find = await Tracking.find({excelName}).skip((page-1)*pageSize).limit(pageSize);
+    return {
+        list: find,
+        total: len
+    };
+}
+
+// 查找一个
+async function findOne(select) {
+    try{
+        let find = await Tracking.findOne(select);
+        return find;
+    }catch (err){
+        console.log('查找一个失败')
+    }
+
+}
+
+
+export {
+    findTracking,
+    create,
+    update,
+    findOne
+};
+
+

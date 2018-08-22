@@ -1,0 +1,17 @@
+
+export default {
+   search(data) {
+     this.$http.get('/posts',{
+       params:this.search_data.search_val?{id:this.search_data.search_val}:{}
+     }).then(res => {
+        this.tableData = res.data
+     })
+   },
+  transporSearch(data) {
+     this.$http.get('/ports',{
+       params:this.search_right.val?{code:this.search_right.val}:{}
+     }).then(res => {
+        this.tableData = res.data
+     })
+   },
+}

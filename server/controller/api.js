@@ -1,0 +1,175 @@
+import {Router} from 'express';
+const router = Router();
+
+import {reprocess_tracks, track_list,track_get,track_update,track_del} from '../service/track-number';
+import Channels from '../channel';
+import  {transports_status,online_status,vote_status} from '../service/common'
+import  * as action from '../service/action-mysql'
+import  logistics from '../model/logistics'
+import  transport_mode from '../model/transport_mode'
+import {process_day_tracks, day_queue_panes, day_queue_data} from '../service/day-track';
+import {channels_queue, channel_queue} from '../service/channel-queue';
+import {channel_spider_worker_get, channel_spider_worker_set} from "../redis/track";
+// 跟踪号列表
+//参数  {track  跟踪号 ，channel物流商  transport 运输方式     online  上网状态   vote 妥投状态  }
+router.get('/track-list', async function (req, res) {
+    let where = {};
+    if(req.query.track){
+        where.track = req.query.track.split(',');
+    }
+    if(req.query.channel) {
+        where.channel= req.query.channel
+    };
+    if(req.query.vote) {
+        where.is_succ= req.query.vote
+    };
+    if(req.query.online) {
+        where.is_online= req.query.online
+    };
+    let page = 1;
+    if(req.query.page){
+        page = req.query.page;
+    }
+    let pageSize = 20;
+    if(req.query.pageSize){
+        pageSize = req.query.pageSize;
+    }
+    const result = await track_list(where, page, pageSize);
+    res.json(result)
+});
+// 查看跟踪号列表
+router.get('/track-list/:id', async function (req, res) {
+        let id=req.params.id;
+        res.json(await track_get({id:id}))
+});
+// 更新 跟踪号
+router.put('/track-list/update', async function (req, res) {
+    let data=req.body;
+    await  track_update(data)
+    res.json({message:"更新成功"})
+});
+// 删跟踪号
+router.delete('/track-list/:id', async function (req, res) {
+    let id=req.params.id;
+    await  track_del(id)
+    res.json({message:"删除成功"})
+});
+
+//物流商列表
+router.get('/logistics', async function (req, res) {
+    let page = 1;
+    if(req.query.page){
+        page = req.query.page;
+    }
+    let pageSize = 20;
+    if(req.query.pageSize){
+        pageSize = req.query.pageSize;
+    }
+    res.json(await action.get_list(logistics,{},page,pageSize))
+});
+// 根据物流商  获取运输方式
+router.get('/logistics/:id', async function (req, res) {
+    let where={'logistic_id':req.params.id};
+    let page = 1;
+    if(req.query.page){
+        page = req.query.page;
+    }
+    let pageSize = 20;
+    if(req.query.pageSize){
+        pageSize = req.query.pageSize;
+    }
+    res.json(await action.get_list(transport_mode,where,page,pageSize))
+});
+//查看 运输方式
+router.get('/transport-mode/:id', async function (req, res) {
+    let where={'id':req.params.id};
+    res.json(await action.get_info(transport_mode,where))
+});
+//更新 运输方式
+router.put('/transport-mode/update', async function (req, res) {
+    let data=req.body;
+    res.json(await action.update(transport_mode,data))
+});
+//增加 运输方式
+router.post('/transport-mode/add', async function (req, res) {
+    let data=req.body;
+    res.json(await action.add(transport_mode,data))
+});
+// 删除运输方式
+router.delete('/transport-mode/:id', async function (req, res) {
+    let id=req.params.id;
+    await  action.del(transport_mode,id)
+    res.json({message:"删除成功"})
+});
+//获取渠道
+router.get('/channels', async function (req, res) {
+    const channels = Object.keys(Channels).map(channel =>{
+        return Object.assign({}, Channels[channel],{channel});
+    });
+    res.json(channels);
+});
+//增加  上网状态
+router.get('/online-status', async function(req, res){
+    res.json(online_status());
+});
+
+//增加  妥投状态
+router.get('/vote-status', async function(req, res){
+    res.json(vote_status());
+});
+// 增加 运输方式
+router.get('/transports', async function(req, res){
+    res.json(transports_status());
+});
+
+
+
+
+
+
+
+// router.get('/reprocess_tracks', async function (req, res) {
+//     await reprocess_tracks();
+//     res.json({ok: 'ok'})
+// });
+//
+// router.get('/process_day_tracks', async function (req, res) {
+//     await process_day_tracks();
+//     res.json({ok: 'ok'})
+// });
+//
+// router.get('/channels-queue', async function (req, res) {
+//     const queues = await channels_queue();
+//     res.json(queues);
+// });
+// router.get('/channel-queue', async function (req, res) {
+//     const queues = await channel_queue(req.query.channel);
+//     res.json(queues);
+// });
+//
+// router.get('/channels-worker', async function (req, res){
+//     const channels = await Promise.all(Object.keys(Channels).map(async channel =>{
+//         return Object.assign({},Channels[channel],{channel}, {value:await channel_spider_worker_get(channel)})
+//     }));
+//     res.json(channels);
+// });
+//
+// router.post('/channels-worker', async function (req, res) {
+//     await req.body.forEach(async({channel,value}) =>{
+//         await channel_spider_worker_set(channel, value)
+//     });
+//     res.json({message:'保存成功'});
+// });
+//
+// router.get('/day-queue-panes', async function(req, res){
+//     res.json(await day_queue_panes());
+// });
+//
+// router.get('/day-queue-data', async function(req, res){
+//     const data = await day_queue_data(req.query.day);
+//     res.json(data);
+// });
+
+
+
+export default router;

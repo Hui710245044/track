@@ -1,0 +1,31 @@
+import sequelize from '../mysql';
+import Sequelize from 'sequelize';
+
+const trackNumber = sequelize.define('tracking', {
+    track:{
+        type:Sequelize.DataTypes.STRING
+    },
+    channel :{
+        type:Sequelize.DataTypes.STRING
+    },
+    is_online:{
+        type:Sequelize.DataTypes.SMALLINT
+    },
+    is_succ:{
+        type:Sequelize.DataTypes.SMALLINT
+    },
+    stime:{
+        type:Sequelize.DataTypes.DATE
+    },
+    ptime:{
+        type:Sequelize.DataTypes.DATE
+    },
+    etime:{
+        type:Sequelize.DataTypes.DATE
+    },
+    from_tag:{
+        type:Sequelize.DataTypes.INTEGER
+    },
+});
+
+export default trackNumber;

@@ -1,0 +1,160 @@
+<template>
+    <div class="track-table">
+        <!--导入按钮-->
+        <div>
+            <div class="file-btn">
+                导入Excel
+                <input class="update-excel" type="file"
+                       ref="file">
+            </div>
+            <div class="file-btn">
+                导入Json
+                <input class="update-excel" type="file"
+                       ref="file">
+            </div>
+        </div>
+        <!--展示表格内容-->
+        <el-table height="400" :data="tableData" border>
+            <el-table-column prop="id" label="ID" width="60" align="center"></el-table-column>
+            <el-table-column prop="from_tag"  label="来源" width="200" align="center"></el-table-column>
+            <el-table-column prop="track" label="跟踪号" width="200" align="center"></el-table-column>
+            <el-table-column prop="channel" label="物流商 " width="200" align="center"></el-table-column>
+            <el-table-column  prop="from_tag" label="运输方式" width="200" align="center"></el-table-column>
+
+            <el-table-column label="妥投状态" align="center">
+                <template slot-scope="scope">
+                    <span>{{scope.row.is_succ | is_succ}}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="上网状态" align="center">
+                <template slot-scope="scope">
+                    <span>{{scope.row.is_online|isOnline}}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="最近跟踪时间" align="center">
+                <template slot-scope="scope">
+                    <span>{{scope.row.updatedAt}}</span>
+                </template>
+            </el-table-column>
+
+            <el-table-column fixed="right" label="操作" align="center">
+                <template slot-scope="scope">
+                    <el-button @click.native="lookUp(scope.row,1)" type="text">查看</el-button>
+                    <el-button type="text" @click.native="lookUp(scope.row,0)">编辑</el-button>
+                    <el-button  type="text" @click.native.prevent="deleteRow(scope.$index, tableData)">删除</el-button>
+                    <!--<el-button type="text" @click.native="trackEdit(scope.row)">轨迹</el-button>-->
+                    <el-button type="text" @click="dialogTableVisible = true">轨迹</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+
+        <ui-check :title="title" :addEditform="addEditform" @update="update" v-model="showDialog" :type="this.type"></ui-check>
+
+        <!--弾层轨迹-->
+        <!--<el-dialog title="查看跟踪号:" :visible.sync="dialogTableVisible">-->
+            <!--<span>上网状态:</span>-->
+            <!--<span>妥投状态:</span>-->
+            <!--<el-table :data="tabeData">-->
+                <!--<el-table-column property="date" label="时间" width="150"></el-table-column>-->
+                <!--<el-table-column property="content" label="内容" width="200"></el-table-column>-->
+            <!--</el-table>-->
+        <!--</el-dialog>-->
+    </div>
+</template>
+<script>
+    export default{
+        data(){
+            return{
+                showDialog:false,
+                editDialog: false,
+                lookDialog: false,
+                dialogTableVisible:false,
+                addEditform: {},
+                formLabelWidth: '100px',
+                type:0,
+                title:'',
+            }
+        },
+        filters:{
+            isOnline(val){
+                return val?'是':'否'
+            },
+            is_succ(type){
+                return type? '是' : '否'
+            }
+        },
+        methods:{
+            lookUp(row,type) {
+                this.type = type;
+                this.title = type?'查看':'编辑'
+                this.showDialog = true;
+                this.addEditform = row;
+            },
+            update(type) {
+                console.log(type);
+                let find = this.tableData.find(row => row.track === this.addEditform.track);
+                Object.assign(find, this.addEditform);
+                this.lookDialog = false;
+                this.showDialog = false;
+            },
+            deleteRow(index, rows) {
+                this.$confirm('此操作将永久删除, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$http.delete('/track-list/:id').then(res=>{
+                        rows.splice(index, 1);
+                        this.$message({type: 'success', message: '删除成功!'});
+                    }).catch(err=>{
+                        this.$message({type: 'error', message: '删除失败!'});
+                    })
+                }).catch(() => {
+                    this.$message({ type: 'info',message: '已取消删除'});
+                });
+            },
+            handleEdit(row) {
+                this.editDialog = true;
+                this.addEditform = row;
+            },
+            trackEdit(row) {
+                this.dialogTableVisible = true;
+                this.addEditform = row;
+            },
+        },
+        props:{
+            tableData:{
+                type:Array,
+            },
+        },
+        components:{
+            uiCheck:require('./ui-check.vue').default
+        },
+    }
+</script>
+<style lang="stylus">
+  .track-table{
+    .input-size{
+      width:219px;
+    }
+    .file-btn {
+      position: relative;
+      display: inline-block;
+      background: #409EFF;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 12px;
+      margin: 10px 10px;
+    }
+    .update-excel {
+      cursor: pointer;
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+  }
+</style>

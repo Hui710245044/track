@@ -1,0 +1,4095 @@
+require('source-map-support/register')
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(19);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("express");
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mysql__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sequelize__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sequelize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sequelize__);
+
+
+
+var trackNumber = __WEBPACK_IMPORTED_MODULE_0__mysql__["a" /* default */].define('tracking', {
+    track: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.STRING
+    },
+    channel: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.STRING
+    },
+    is_online: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.SMALLINT
+    },
+    is_succ: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.SMALLINT
+    },
+    stime: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.DATE
+    },
+    ptime: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.DATE
+    },
+    etime: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.DATE
+    },
+    from_tag: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.INTEGER
+    }
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (trackNumber);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+    CN: {
+        name: '',
+        channel: '',
+        node: 11,
+        spider: 'cainiao'
+    },
+    DDP: {
+        name: '',
+        channel: '',
+        node: 2,
+        delivered: 'delivered',
+        spider: '17track'
+    },
+    JY: {
+        name: '',
+        channel: '',
+        node: 3,
+        delivered: 'delivered',
+        spider: 'cainiao'
+    }
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var asyncRedis = __webpack_require__(31);
+var client = asyncRedis.createClient();
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
+/* harmony default export */ __webpack_exports__["a"] = (client);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("sequelize");
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(5);
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var Queue = function () {
+    function Queue(key) {
+        _classCallCheck(this, Queue);
+
+        this.__key = key;
+    }
+
+    _createClass(Queue, [{
+        key: 'getSetKey',
+        value: function getSetKey() {
+            return 'queue:common:' + this.__key + ':set';
+        }
+    }, {
+        key: 'getQueueKey',
+        value: function getQueueKey() {
+            return 'queue:common:' + this.__key + ':queue';
+        }
+    }, {
+        key: 'isLockKey',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee() {
+                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.t0 = parseInt;
+                                _context.next = 3;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].incr('queue:common-lock:' + this.__key);
+
+                            case 3:
+                                _context.t1 = _context.sent;
+                                _context.t2 = (0, _context.t0)(_context.t1);
+                                return _context.abrupt('return', _context.t2 > 1);
+
+                            case 6:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function isLockKey() {
+                return _ref.apply(this, arguments);
+            }
+
+            return isLockKey;
+        }()
+    }, {
+        key: 'unLockKey',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _context2.next = 2;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].del('queue:common-lock:' + this.__key);
+
+                            case 2:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function unLockKey() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return unLockKey;
+        }()
+    }, {
+        key: 'push',
+        value: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(data) {
+                var isNotMember;
+                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _context3.next = 2;
+                                return this.isLockKey();
+
+                            case 2:
+                                if (!_context3.sent) {
+                                    _context3.next = 9;
+                                    break;
+                                }
+
+                                _context3.next = 5;
+                                return setTime(200);
+
+                            case 5:
+                                _context3.next = 7;
+                                return this.push(data);
+
+                            case 7:
+                                _context3.next = 20;
+                                break;
+
+                            case 9:
+                                data = JSON.stringify(data);
+                                _context3.next = 12;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].sismember(this.getSetKey(), data);
+
+                            case 12:
+                                isNotMember = !_context3.sent;
+
+                                if (!isNotMember) {
+                                    _context3.next = 18;
+                                    break;
+                                }
+
+                                _context3.next = 16;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].sadd(this.getSetKey(), data);
+
+                            case 16:
+                                _context3.next = 18;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].lpush(this.getQueueKey(), data);
+
+                            case 18:
+                                _context3.next = 20;
+                                return this.unLockKey();
+
+                            case 20:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function push(_x) {
+                return _ref3.apply(this, arguments);
+            }
+
+            return push;
+        }()
+    }, {
+        key: 'pushFast',
+        value: function () {
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee4(data) {
+                var isNotMember;
+                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                    while (1) {
+                        switch (_context4.prev = _context4.next) {
+                            case 0:
+                                _context4.next = 2;
+                                return this.isLockKey();
+
+                            case 2:
+                                if (!_context4.sent) {
+                                    _context4.next = 9;
+                                    break;
+                                }
+
+                                _context4.next = 5;
+                                return setTime(200);
+
+                            case 5:
+                                _context4.next = 7;
+                                return this.pushFast(data);
+
+                            case 7:
+                                _context4.next = 20;
+                                break;
+
+                            case 9:
+                                data = JSON.stringify(data);
+                                _context4.next = 12;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].sismember(this.getSetKey(), data);
+
+                            case 12:
+                                isNotMember = !_context4.sent;
+
+                                if (!isNotMember) {
+                                    _context4.next = 16;
+                                    break;
+                                }
+
+                                _context4.next = 16;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].sadd(this.getSetKey(), data);
+
+                            case 16:
+                                _context4.next = 18;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].rpush(this.getQueueKey(), data);
+
+                            case 18:
+                                _context4.next = 20;
+                                return this.unLockKey();
+
+                            case 20:
+                            case 'end':
+                                return _context4.stop();
+                        }
+                    }
+                }, _callee4, this);
+            }));
+
+            function pushFast(_x2) {
+                return _ref4.apply(this, arguments);
+            }
+
+            return pushFast;
+        }()
+    }, {
+        key: 'pop',
+        value: function () {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee5() {
+                var data;
+                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+                    while (1) {
+                        switch (_context5.prev = _context5.next) {
+                            case 0:
+                                _context5.next = 2;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].rpop(this.getQueueKey());
+
+                            case 2:
+                                data = _context5.sent;
+
+                                if (!data) {
+                                    _context5.next = 13;
+                                    break;
+                                }
+
+                                _context5.next = 6;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].srem(this.getSetKey(), data);
+
+                            case 6:
+                                if (!_context5.sent) {
+                                    _context5.next = 8;
+                                    break;
+                                }
+
+                                return _context5.abrupt('return', JSON.parse(data));
+
+                            case 8:
+                                _context5.next = 10;
+                                return this.pop();
+
+                            case 10:
+                                return _context5.abrupt('return', _context5.sent);
+
+                            case 13:
+                                return _context5.abrupt('return', false);
+
+                            case 14:
+                            case 'end':
+                                return _context5.stop();
+                        }
+                    }
+                }, _callee5, this);
+            }));
+
+            function pop() {
+                return _ref5.apply(this, arguments);
+            }
+
+            return pop;
+        }()
+    }, {
+        key: 'length',
+        value: function () {
+            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee6() {
+                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+                    while (1) {
+                        switch (_context6.prev = _context6.next) {
+                            case 0:
+                                _context6.next = 2;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].slen(this.getSetKey());
+
+                            case 2:
+                                _context6.t0 = _context6.sent;
+
+                                if (_context6.t0) {
+                                    _context6.next = 5;
+                                    break;
+                                }
+
+                                _context6.t0 = 0;
+
+                            case 5:
+                                return _context6.abrupt('return', _context6.t0);
+
+                            case 6:
+                            case 'end':
+                                return _context6.stop();
+                        }
+                    }
+                }, _callee6, this);
+            }));
+
+            function length() {
+                return _ref6.apply(this, arguments);
+            }
+
+            return length;
+        }()
+    }, {
+        key: 'elements',
+        value: function () {
+            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee7() {
+                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+                    while (1) {
+                        switch (_context7.prev = _context7.next) {
+                            case 0:
+                                _context7.next = 2;
+                                return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].smembers(this.getSetKey());
+
+                            case 2:
+                                _context7.t0 = _context7.sent;
+
+                                if (_context7.t0) {
+                                    _context7.next = 5;
+                                    break;
+                                }
+
+                                _context7.t0 = [];
+
+                            case 5:
+                                return _context7.abrupt('return', _context7.t0);
+
+                            case 6:
+                            case 'end':
+                                return _context7.stop();
+                        }
+                    }
+                }, _callee7, this);
+            }));
+
+            function elements() {
+                return _ref7.apply(this, arguments);
+            }
+
+            return elements;
+        }()
+    }]);
+
+    return Queue;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Queue);
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var Sequelize = __webpack_require__(6);
+var sequelize = new Sequelize('tracking_number', 'root', '', {
+    host: 'localhost',
+    dialect: 'mysql',
+    operatorsAliases: false,
+
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    },
+    timezone: '+08:00'
+});
+/* harmony default export */ __webpack_exports__["a"] = (sequelize);
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export findTracking */
+/* unused harmony export create */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return findOne; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_tracking_list__ = __webpack_require__(30);
+
+
+// 创建
+var create = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(doc) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        console.log(doc);
+                        __WEBPACK_IMPORTED_MODULE_1__model_tracking_list__["a" /* default */].create(doc).then(function (root) {
+                            console.log(root);
+                        });
+
+                    case 2:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function create(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+// 更新
+
+var update = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(doc) {
+        var select, update, options;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        select = { tracking: doc.tracking };
+                        update = { $set: doc };
+                        options = { upsert: true };
+
+                        __WEBPACK_IMPORTED_MODULE_1__model_tracking_list__["a" /* default */].update(select, update, options, function (error) {
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                console.log('update ok!');
+                            }
+                        });
+
+                    case 4:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function update(_x2) {
+        return _ref2.apply(this, arguments);
+    };
+}();
+
+// 查找
+
+
+var findTracking = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(data) {
+        var excelName, page, pageSize, len, find;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        excelName = data.excelName, page = data.page, pageSize = data.pageSize;
+
+                        page = Number(page);
+                        pageSize = Number(pageSize);
+                        _context3.next = 5;
+                        return __WEBPACK_IMPORTED_MODULE_1__model_tracking_list__["a" /* default */].find({ excelName: excelName }).count();
+
+                    case 5:
+                        len = _context3.sent;
+                        _context3.next = 8;
+                        return __WEBPACK_IMPORTED_MODULE_1__model_tracking_list__["a" /* default */].find({ excelName: excelName }).skip((page - 1) * pageSize).limit(pageSize);
+
+                    case 8:
+                        find = _context3.sent;
+                        return _context3.abrupt('return', {
+                            list: find,
+                            total: len
+                        });
+
+                    case 10:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this);
+    }));
+
+    return function findTracking(_x3) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+// 查找一个
+
+
+var findOne = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee4(select) {
+        var find;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        _context4.prev = 0;
+                        _context4.next = 3;
+                        return __WEBPACK_IMPORTED_MODULE_1__model_tracking_list__["a" /* default */].findOne(select);
+
+                    case 3:
+                        find = _context4.sent;
+                        return _context4.abrupt('return', find);
+
+                    case 7:
+                        _context4.prev = 7;
+                        _context4.t0 = _context4['catch'](0);
+
+                        console.log('查找一个失败');
+
+                    case 10:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, this, [[0, 7]]);
+    }));
+
+    return function findOne(_x4) {
+        return _ref4.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("mongoose");
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addNeedTrack; });
+/* unused harmony export track_channel_get */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return channel_spider_worker_get; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return channel_spider_worker_set; });
+/* unused harmony export track_channel_set */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(5);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+var NEED_TRACK = 'need_track';
+
+var addNeedTrack = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(track) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].sadd(NEED_TRACK, track);
+
+                    case 2:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function addNeedTrack(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+var HASH_TRACK_CHANNEL = 'hash_track_channel';
+var track_channel_get = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(track) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].hget(HASH_TRACK_CHANNEL, track);
+
+                    case 2:
+                        _context2.t0 = _context2.sent;
+
+                        if (_context2.t0) {
+                            _context2.next = 5;
+                            break;
+                        }
+
+                        _context2.t0 = "CN";
+
+                    case 5:
+                        return _context2.abrupt('return', _context2.t0);
+
+                    case 6:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function track_channel_get(_x2) {
+        return _ref2.apply(this, arguments);
+    };
+}();
+
+var DEFAULT_CHANNEL_SPIDER_WORKER = 1;
+var channel_spider_worker_get = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(channel) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        _context3.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].hget("channel_spider_worker", channel);
+
+                    case 2:
+                        _context3.t0 = _context3.sent;
+
+                        if (_context3.t0) {
+                            _context3.next = 5;
+                            break;
+                        }
+
+                        _context3.t0 = DEFAULT_CHANNEL_SPIDER_WORKER;
+
+                    case 5:
+                        return _context3.abrupt('return', _context3.t0);
+
+                    case 6:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this);
+    }));
+
+    return function channel_spider_worker_get(_x3) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+var channel_spider_worker_set = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee4(channel, worker) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        _context4.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].hset("channel_spider_worker", channel, worker);
+
+                    case 2:
+                        return _context4.abrupt('return', _context4.sent);
+
+                    case 3:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, this);
+    }));
+
+    return function channel_spider_worker_set(_x4, _x5) {
+        return _ref4.apply(this, arguments);
+    };
+}();
+
+var track_channel_set = function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee5(track, channel) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+            while (1) {
+                switch (_context5.prev = _context5.next) {
+                    case 0:
+                        _context5.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].hset(HASH_TRACK_CHANNEL, track, channel);
+
+                    case 2:
+                        return _context5.abrupt('return', _context5.sent);
+
+                    case 3:
+                    case 'end':
+                        return _context5.stop();
+                }
+            }
+        }, _callee5, this);
+    }));
+
+    return function track_channel_set(_x6, _x7) {
+        return _ref5.apply(this, arguments);
+    };
+}();
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var log4js = __webpack_require__(39);
+log4js.configure({
+    appenders: { cheese: { type: 'file', filename: 'track.log' } },
+    categories: { default: { appenders: ['cheese'], level: 'trace' } }
+});
+var logger = log4js.getLogger('cheese');
+/* unused harmony default export */ var _unused_webpack_default_export = (logger);
+
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__log4js__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helper_user_agents__ = __webpack_require__(43);
+
+
+var request_track_result = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(trackList) {
+        var options;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        options = {
+                            url: 'https://t.17track.net/restapi/track',
+                            method: 'POST',
+                            headers: {
+                                'Host': 't.17track.net',
+                                'Connection': 'close',
+                                'Pragma': 'no-cache',
+                                'Cache-Control': 'no-cache',
+                                'Accept': 'application/json',
+                                'Origin': 'https://t.17track.net',
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'User-Agent': __WEBPACK_IMPORTED_MODULE_2__helper_user_agents__["a" /* default */].randomOne(),
+                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                                'Referer': 'https://t.17track.net/zh-cn',
+                                'Accept-Encoding': 'gzip, deflate, br',
+                                'Accept-Language': 'zh-CN,zh;q=0.9 '
+                            },
+                            data: {
+                                "guid": "", "data": trackList.unique().map(function (track) {
+                                    return { num: track };
+                                })
+                            }
+                        };
+                        return _context.abrupt('return', new Promise(function (succ, fail) {
+                            axios(options).then(function (res) {
+                                if (res.data.msg === 'Ok') {
+                                    succ(res.data.dat);
+                                } else {
+                                    fail(res);
+                                }
+                            }).catch(function (error) {
+                                fail(error);
+                            });
+                        }));
+
+                    case 2:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function request_track_result(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var axios = __webpack_require__(2);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (request_track_result);
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export save_to_list */
+/* unused harmony export redis_hash */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return pop_list_promise; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return get_list_len; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return push_list_promise; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return redis_erp; });
+/* unused harmony export pop_list_erp_promise */
+/* unused harmony export get_list_erp_len */
+/* unused harmony export push_list_erp_promise */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__redis_index__ = __webpack_require__(5);
+
+
+var pop_list_promise = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var lpopAsync, res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        lpopAsync = promisify(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].rpop).bind(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */]);
+                        _context.prev = 1;
+                        _context.next = 4;
+                        return lpopAsync(TRACK_LIST);
+
+                    case 4:
+                        res = _context.sent;
+
+                        console.log(res + '\u79FB\u51FA\u961F\u5217');
+                        return _context.abrupt('return', res);
+
+                    case 9:
+                        _context.prev = 9;
+                        _context.t0 = _context['catch'](1);
+
+                        console.log('shift_list_promise', _context.t0);
+
+                    case 12:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this, [[1, 9]]);
+    }));
+
+    return function pop_list_promise() {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+var get_list_len = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var llenAsync, res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        llenAsync = promisify(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].llen).bind(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */]);
+                        _context2.prev = 1;
+                        _context2.next = 4;
+                        return llenAsync(TRACK_LIST);
+
+                    case 4:
+                        res = _context2.sent;
+
+                        console.log('list\u957F\u5EA6\u8FD8\u6709' + res);
+                        return _context2.abrupt('return', res);
+
+                    case 9:
+                        _context2.prev = 9;
+                        _context2.t0 = _context2['catch'](1);
+
+                        console.log('get_list_len', _context2.t0);
+
+                    case 12:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this, [[1, 9]]);
+    }));
+
+    return function get_list_len() {
+        return _ref2.apply(this, arguments);
+    };
+}();
+
+var push_list_promise = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(track) {
+        var lpushAsync, res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        lpushAsync = promisify(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].lpush).bind(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */]);
+                        _context3.prev = 1;
+                        _context3.next = 4;
+                        return lpushAsync(TRACK_LIST, track);
+
+                    case 4:
+                        res = _context3.sent;
+
+                        console.log(track + '\u91CD\u65B0\u538B\u5165\u961F\u5217\uFF0C ' + res);
+                        _context3.next = 11;
+                        break;
+
+                    case 8:
+                        _context3.prev = 8;
+                        _context3.t0 = _context3['catch'](1);
+
+                        console.log('push_list_promise', _context3.t0);
+
+                    case 11:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this, [[1, 8]]);
+    }));
+
+    return function push_list_promise(_x) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+// erp 推送
+
+
+var pop_list_erp_promise = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee4() {
+        var lpopAsync, res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        lpopAsync = promisify(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].rpop).bind(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */]);
+                        _context4.prev = 1;
+                        _context4.next = 4;
+                        return lpopAsync('track_erp_list');
+
+                    case 4:
+                        res = _context4.sent;
+
+                        console.log(res + '\u79FB\u51FA\u961F\u5217');
+                        return _context4.abrupt('return', res);
+
+                    case 9:
+                        _context4.prev = 9;
+                        _context4.t0 = _context4['catch'](1);
+
+                        console.log('shift_list_promise', _context4.t0);
+
+                    case 12:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, this, [[1, 9]]);
+    }));
+
+    return function pop_list_erp_promise() {
+        return _ref4.apply(this, arguments);
+    };
+}();
+
+var get_list_erp_len = function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee5() {
+        var llenAsync, res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+            while (1) {
+                switch (_context5.prev = _context5.next) {
+                    case 0:
+                        llenAsync = promisify(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].llen).bind(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */]);
+                        _context5.prev = 1;
+                        _context5.next = 4;
+                        return llenAsync('track_erp_list');
+
+                    case 4:
+                        res = _context5.sent;
+
+                        console.log('list\u957F\u5EA6\u8FD8\u6709' + res);
+                        return _context5.abrupt('return', res);
+
+                    case 9:
+                        _context5.prev = 9;
+                        _context5.t0 = _context5['catch'](1);
+
+                        console.log('get_list_len', _context5.t0);
+
+                    case 12:
+                    case 'end':
+                        return _context5.stop();
+                }
+            }
+        }, _callee5, this, [[1, 9]]);
+    }));
+
+    return function get_list_erp_len() {
+        return _ref5.apply(this, arguments);
+    };
+}();
+
+var push_list_erp_promise = function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee6(track) {
+        var lpushAsync, jsonString, res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+            while (1) {
+                switch (_context6.prev = _context6.next) {
+                    case 0:
+                        lpushAsync = promisify(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].lpush).bind(__WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */]);
+                        _context6.prev = 1;
+                        jsonString = JSON.stringify(track);
+
+                        console.log("test", jsonString);
+                        _context6.next = 6;
+                        return lpushAsync('track_erp_list', jsonString);
+
+                    case 6:
+                        res = _context6.sent;
+
+                        console.log(track + '\u91CD\u65B0\u538B\u5165\u961F\u5217\uFF0C ' + res);
+                        _context6.next = 13;
+                        break;
+
+                    case 10:
+                        _context6.prev = 10;
+                        _context6.t0 = _context6['catch'](1);
+
+                        console.log('push_list_promise', _context6.t0);
+
+                    case 13:
+                    case 'end':
+                        return _context6.stop();
+                }
+            }
+        }, _callee6, this, [[1, 10]]);
+    }));
+
+    return function push_list_erp_promise(_x2) {
+        return _ref6.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var _require = __webpack_require__(47),
+    promisify = _require.promisify;
+
+
+
+var TRACK_LIST = 'track_list';
+
+function redis_hash(track, find_channel) {
+    __WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].hexists("track_hash", track, function (err, res) {
+        if (err) {
+            console.log(err);
+        } else {
+            if (res === 0) {
+                console.log(track + '\u4E0D\u5728hash\u4E2D', res);
+                save_to_hash(track);
+
+                save_to_list(track); // 保存到一个平台
+            } else {
+                console.log(track + '\u5DF2\u5B58\u5728');
+            }
+        }
+    });
+}
+
+function save_to_hash(track) {
+    // 存入hash
+    __WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].hset('track_hash', track, '', function (err, res) {
+        if (err) {
+            console.log('save_to_hash', err);
+        } else {
+            console.log('\u4FDD\u5B58\u5230hash\u6210\u529F' + res);
+        }
+    });
+}
+
+function save_to_list(track) {
+    // 存入list
+    __WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].rpush(TRACK_LIST, track, function (err, res) {
+        if (err) {
+            console.log('save_to_list', err);
+        } else {
+            console.log('\u4FDD\u5B58\u5230list\u6210\u529F' + res);
+        }
+    });
+}
+
+function save_to_list_cainiao(track) {
+    // 存入list
+    __WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].rpush('track_list_cainiao', track, function (err, res) {
+        if (err) {
+            console.log('save_to_list', err);
+        } else {
+            console.log('\u4FDD\u5B58\u5230list\u6210\u529F' + res);
+        }
+    });
+}
+
+function save_to_list_trackmore(track) {
+    // 存入list
+    __WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].rpush('track_list_trackmore', track, function (err, res) {
+        if (err) {
+            console.log('save_to_list', err);
+        } else {
+            console.log('\u4FDD\u5B58\u5230list\u6210\u529F' + res);
+        }
+    });
+}
+
+function redis_erp(item) {
+    __WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].hexists("track_erp_hash", item.tracking, function (err, res) {
+        if (err) {
+            console.log(err);
+        } else {
+            if (res === 0) {
+                //save_to_erp_hash(item.tracking);
+                var jsonString = JSON.stringify(item);
+                console.log("test", jsonString);
+                save_to_erp_list(jsonString);
+            }
+        }
+    });
+}
+function save_to_erp_hash(track) {
+    __WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].hset('track_erp_hash', track, '', function (err, res) {
+        if (err) {
+            console.log('save_to_hash', err);
+        } else {
+            console.log('\u4FDD\u5B58\u5230hash\u6210\u529F' + res);
+        }
+    });
+}
+function save_to_erp_list(item) {
+    __WEBPACK_IMPORTED_MODULE_1__redis_index__["a" /* default */].rpush('track_erp_list', item, function (err, res) {
+        if (err) {
+            console.log('save_to_list', err);
+        } else {
+            console.log('\u4FDD\u5B58\u5230list\u6210\u529F' + res);
+        }
+    });
+}
+
+
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return reprocess_tracks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return track_list; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_track_number__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__redis_queue__ = __webpack_require__(7);
+
+
+var pushFastQueue = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(track) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        if (!queues[track.channel]) {
+                            _context2.next = 5;
+                            break;
+                        }
+
+                        _context2.next = 3;
+                        return queues[track.channel].pushFast(track.track);
+
+                    case 3:
+                        _context2.next = 8;
+                        break;
+
+                    case 5:
+                        queues[track.channel] = new __WEBPACK_IMPORTED_MODULE_2__redis_queue__["a" /* default */]("wait-process-track-" + track.channel);
+                        _context2.next = 8;
+                        return pushFastQueue(track);
+
+                    case 8:
+                    case "end":
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function pushFastQueue(_x) {
+        return _ref2.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+
+var reprocess_tracks = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var tracks, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, track;
+
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__model_track_number__["a" /* default */].findAll({
+                            where: {
+                                is_succ: 0,
+                                is_online: 0
+                            }
+                        });
+
+                    case 2:
+                        tracks = _context.sent;
+                        _iteratorNormalCompletion = true;
+                        _didIteratorError = false;
+                        _iteratorError = undefined;
+                        _context.prev = 6;
+                        _iterator = tracks[Symbol.iterator]();
+
+                    case 8:
+                        if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+                            _context.next = 15;
+                            break;
+                        }
+
+                        track = _step.value;
+                        _context.next = 12;
+                        return pushFastQueue(track);
+
+                    case 12:
+                        _iteratorNormalCompletion = true;
+                        _context.next = 8;
+                        break;
+
+                    case 15:
+                        _context.next = 21;
+                        break;
+
+                    case 17:
+                        _context.prev = 17;
+                        _context.t0 = _context["catch"](6);
+                        _didIteratorError = true;
+                        _iteratorError = _context.t0;
+
+                    case 21:
+                        _context.prev = 21;
+                        _context.prev = 22;
+
+                        if (!_iteratorNormalCompletion && _iterator.return) {
+                            _iterator.return();
+                        }
+
+                    case 24:
+                        _context.prev = 24;
+
+                        if (!_didIteratorError) {
+                            _context.next = 27;
+                            break;
+                        }
+
+                        throw _iteratorError;
+
+                    case 27:
+                        return _context.finish(24);
+
+                    case 28:
+                        return _context.finish(21);
+
+                    case 29:
+                    case "end":
+                        return _context.stop();
+                }
+            }
+        }, _callee, this, [[6, 17, 21, 29], [22,, 24, 28]]);
+    }));
+
+    return function reprocess_tracks() {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+var queues = {};
+
+
+var track_list = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3() {
+        var where = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+        var pageSize = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 20;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        page = parseInt(page);
+                        pageSize = parseInt(pageSize);
+                        _context3.next = 4;
+                        return __WEBPACK_IMPORTED_MODULE_1__model_track_number__["a" /* default */].findAndCountAll({
+                            where: where,
+                            limit: pageSize,
+                            offset: (page - 1) * pageSize
+                        });
+
+                    case 4:
+                        return _context3.abrupt("return", _context3.sent);
+
+                    case 5:
+                    case "end":
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this);
+    }));
+
+    return function track_list() {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return process_day_tracks; });
+/* unused harmony export process_channel_day_tracks */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return day_queue_panes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return day_queue_data; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_track_number__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__channel__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__redis_queue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_worker_nodes__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_worker_nodes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_worker_nodes__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_path__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_path___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_path__);
+
+
+var startup = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee5() {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+            while (1) {
+                switch (_context5.prev = _context5.next) {
+                    case 0:
+                        _context5.next = 2;
+                        return Object.keys(__WEBPACK_IMPORTED_MODULE_2__channel__["a" /* default */]).forEach(function () {
+                            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee4(channel) {
+                                var worker;
+                                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                                    while (1) {
+                                        switch (_context4.prev = _context4.next) {
+                                            case 0:
+                                                worker = new __WEBPACK_IMPORTED_MODULE_4_worker_nodes___default.a(__WEBPACK_IMPORTED_MODULE_5_path___default.a.resolve(__dirname, "../channel-module"));
+                                                _context4.prev = 1;
+                                                _context4.next = 4;
+                                                return worker.call(channel, 1);
+
+                                            case 4:
+                                                _context4.next = 9;
+                                                break;
+
+                                            case 6:
+                                                _context4.prev = 6;
+                                                _context4.t0 = _context4["catch"](1);
+
+                                                console.log(_context4.t0);
+
+                                            case 9:
+                                            case "end":
+                                                return _context4.stop();
+                                        }
+                                    }
+                                }, _callee4, _this, [[1, 6]]);
+                            }));
+
+                            return function (_x3) {
+                                return _ref5.apply(this, arguments);
+                            };
+                        }());
+
+                    case 2:
+                    case "end":
+                        return _context5.stop();
+                }
+            }
+        }, _callee5, this);
+    }));
+
+    return function startup() {
+        return _ref4.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+
+
+
+
+var process_day_tracks = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return Object.keys(__WEBPACK_IMPORTED_MODULE_2__channel__["a" /* default */]).forEach(function () {
+                            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(channel) {
+                                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                                    while (1) {
+                                        switch (_context.prev = _context.next) {
+                                            case 0:
+                                                _context.next = 2;
+                                                return process_channel_day_tracks(channel);
+
+                                            case 2:
+                                            case "end":
+                                                return _context.stop();
+                                        }
+                                    }
+                                }, _callee, this);
+                            }));
+
+                            return function (_x) {
+                                return _ref2.apply(this, arguments);
+                            };
+                        }());
+
+                    case 2:
+                        _context2.next = 4;
+                        return startup();
+
+                    case 4:
+                    case "end":
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function process_day_tracks() {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+var process_channel_day_tracks = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(channel) {
+        var waitProcessTrack, nowtime, tracks, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, track;
+
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        waitProcessTrack = new __WEBPACK_IMPORTED_MODULE_3__redis_queue__["a" /* default */]("wait-process-track-" + channel);
+                        nowtime = now();
+                        _context3.next = 4;
+                        return __WEBPACK_IMPORTED_MODULE_1__model_track_number__["a" /* default */].findAll({
+                            where: {
+                                is_succ: 0,
+                                channel: channel
+                                // stime:{
+                                //     '$gt':nowtime
+                                // },
+                                // ptime:{
+                                //     '$gt':nowtime
+                                // }
+                            }
+                        });
+
+                    case 4:
+                        tracks = _context3.sent;
+
+                        console.log("channel :" + channel + " count : " + tracks.length);
+                        _iteratorNormalCompletion = true;
+                        _didIteratorError = false;
+                        _iteratorError = undefined;
+                        _context3.prev = 9;
+                        _iterator = tracks[Symbol.iterator]();
+
+                    case 11:
+                        if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+                            _context3.next = 18;
+                            break;
+                        }
+
+                        track = _step.value;
+                        _context3.next = 15;
+                        return waitProcessTrack.push(track.track);
+
+                    case 15:
+                        _iteratorNormalCompletion = true;
+                        _context3.next = 11;
+                        break;
+
+                    case 18:
+                        _context3.next = 24;
+                        break;
+
+                    case 20:
+                        _context3.prev = 20;
+                        _context3.t0 = _context3["catch"](9);
+                        _didIteratorError = true;
+                        _iteratorError = _context3.t0;
+
+                    case 24:
+                        _context3.prev = 24;
+                        _context3.prev = 25;
+
+                        if (!_iteratorNormalCompletion && _iterator.return) {
+                            _iterator.return();
+                        }
+
+                    case 27:
+                        _context3.prev = 27;
+
+                        if (!_didIteratorError) {
+                            _context3.next = 30;
+                            break;
+                        }
+
+                        throw _iteratorError;
+
+                    case 30:
+                        return _context3.finish(27);
+
+                    case 31:
+                        return _context3.finish(24);
+
+                    case 32:
+                    case "end":
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this, [[9, 20, 24, 32], [25,, 27, 31]]);
+    }));
+
+    return function process_channel_day_tracks(_x2) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+var day_queue_panes = function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee7() {
+        var _this2 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+            while (1) {
+                switch (_context7.prev = _context7.next) {
+                    case 0:
+                        _context7.next = 2;
+                        return Promise.all([{ label: "2018-4-2" }].map(function () {
+                            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee6(day) {
+                                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+                                    while (1) {
+                                        switch (_context6.prev = _context6.next) {
+                                            case 0:
+                                                _context6.t0 = Object;
+                                                _context6.t1 = {};
+                                                _context6.t2 = day;
+                                                _context6.next = 5;
+                                                return day_queue_data(day.label);
+
+                                            case 5:
+                                                _context6.t3 = _context6.sent;
+                                                return _context6.abrupt("return", _context6.t0.assign.call(_context6.t0, _context6.t1, _context6.t2, _context6.t3));
+
+                                            case 7:
+                                            case "end":
+                                                return _context6.stop();
+                                        }
+                                    }
+                                }, _callee6, _this2);
+                            }));
+
+                            return function (_x4) {
+                                return _ref7.apply(this, arguments);
+                            };
+                        }()));
+
+                    case 2:
+                        return _context7.abrupt("return", _context7.sent);
+
+                    case 3:
+                    case "end":
+                        return _context7.stop();
+                }
+            }
+        }, _callee7, this);
+    }));
+
+    return function day_queue_panes() {
+        return _ref6.apply(this, arguments);
+    };
+}();
+
+var day_queue_data = function () {
+    var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee8(key) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+            while (1) {
+                switch (_context8.prev = _context8.next) {
+                    case 0:
+                        return _context8.abrupt("return", {});
+
+                    case 1:
+                    case "end":
+                        return _context8.stop();
+                }
+            }
+        }, _callee8, this);
+    }));
+
+    return function day_queue_data(_x5) {
+        return _ref8.apply(this, arguments);
+    };
+}();
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, "server/service"))
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_body_parser__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_body_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_body_parser__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_express_cors__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_express_cors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_express_cors__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__router__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__timer__ = __webpack_require__(55);
+
+
+
+
+
+
+var app = __WEBPACK_IMPORTED_MODULE_1_express___default()();
+var host = process.env.HOST || '0.0.0.0';
+var port = process.env.PORT || 3000;
+app.use(__WEBPACK_IMPORTED_MODULE_3_express_cors___default()({
+    allowedOrigins: ["localhost:8080"]
+}));
+
+app.use(__WEBPACK_IMPORTED_MODULE_2_body_parser___default.a.json({ limit: '50mb' }));
+//app.use(bodyParser.json());
+app.use(__WEBPACK_IMPORTED_MODULE_2_body_parser___default.a.urlencoded({ extended: false }));
+
+app.set('port', port);
+Object(__WEBPACK_IMPORTED_MODULE_4__router__["a" /* default */])(app);
+
+// Listen the server
+app.listen(port, host);
+console.log('Server listening on ' + host + ':' + port); // eslint-disable-line no-console
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+Array.prototype.randomOne = function () {
+    var len = this.length;
+    var nth = Math.ceil(Math.random() * len) - 1;
+    return this[nth];
+};
+
+Array.prototype.unique = function () {
+    var result = [],
+        hash = {};
+    var j = 0;
+    for (var i = 0, elem; (elem = this[i]) != null; i++) {
+        if (!hash[elem]) {
+            result.push(elem);
+            hash[elem] = true;
+        }
+    }
+    return result;
+};
+
+global.setTime = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(ms) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        return _context.abrupt("return", new Promise(function (succ) {
+                            setTimeout(function () {
+                                succ();
+                            }, ms);
+                        }));
+
+                    case 1:
+                    case "end":
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function (_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+global.now = function () {
+    return Math.round(new Date().getTime() / 1000);
+};
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = require("regenerator-runtime");
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = require("body-parser");
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("express-cors");
+
+/***/ }),
+/* 22 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controller_api__ = __webpack_require__(51);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function (app) {
+    app.use(__WEBPACK_IMPORTED_MODULE_0__api__["a" /* default */]);
+    app.use(__WEBPACK_IMPORTED_MODULE_1__controller_api__["a" /* default */]);
+});;
+
+/***/ }),
+/* 23 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__users__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tracking__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__update_excel__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__excel_name__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__get_track_info__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__erp_post__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__controller_test__ = __webpack_require__(50);
+
+
+
+
+
+
+
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_0_express__["Router"])();
+
+// Add USERS Routes
+router.use(__WEBPACK_IMPORTED_MODULE_1__users__["a" /* default */]);
+router.use(__WEBPACK_IMPORTED_MODULE_2__tracking__["a" /* default */]);
+router.use(__WEBPACK_IMPORTED_MODULE_3__update_excel__["a" /* default */]);
+router.use(__WEBPACK_IMPORTED_MODULE_4__excel_name__["a" /* default */]);
+router.use(__WEBPACK_IMPORTED_MODULE_5__get_track_info__["a" /* default */]);
+router.use(__WEBPACK_IMPORTED_MODULE_6__erp_post__["a" /* default */]);
+
+router.use(__WEBPACK_IMPORTED_MODULE_7__controller_test__["a" /* default */]);
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 24 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_0_express__["Router"])();
+
+// Mock Users
+var users = [{ name: 'Alexandre' }, { name: 'Pooya' }, { name: 'Sébastien' }, { name: 'aaa' }, { name: 'bbb' }];
+
+/* GET users listing. */
+router.get('/users', function (req, res, next) {
+  res.json(users);
+});
+
+/* GET user by ID. */
+router.get('/users/:id', function (req, res, next) {
+  var id = parseInt(req.params.id);
+  if (id >= 0 && id < users.length) {
+    res.json(users[id]);
+  } else {
+    res.sendStatus(404);
+  }
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_track_number__ = __webpack_require__(3);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_1_express__["Router"])();
+
+/* GET tracking listing. */
+router.get('/tracking-list', function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(req, res, next) {
+        var tracks;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_2__model_track_number__["a" /* default */].findAll({
+                            where: {
+                                from_tag: req.query.excelId
+                            }
+                        });
+
+                    case 2:
+                        tracks = _context.sent;
+
+                        res.json({ list: tracks });
+
+                    case 4:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+    };
+}());
+
+/* GET tracking listing. */
+router.get('/tracking-list/get-one', function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(req, res, next) {
+        var tracing_list;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        console.log(req.query.tracking);
+                        _context2.next = 3;
+                        return findOne({
+                            tracking: req.query.tracking
+                        });
+
+                    case 3:
+                        tracing_list = _context2.sent;
+
+                        res.json(tracing_list);
+
+                    case 5:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function (_x4, _x5, _x6) {
+        return _ref2.apply(this, arguments);
+    };
+}());
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 26 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controller_excel_to_json__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mongodb_tracking_list__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__redis_track__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__channel__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__model_track_number__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__model_track_tag__ = __webpack_require__(32);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+
+
+
+
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_1_express__["Router"])();
+
+router.post('/upload/track/excel', function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(req, res, next) {
+        var tracking_json, trackTag, trackTagId, result, i, item;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        tracking_json = Object(__WEBPACK_IMPORTED_MODULE_2__controller_excel_to_json__["a" /* excelToJson */])(req.body);
+
+                        console.log(tracking_json.data);
+                        res.send({ status: 'success', msg: tracking_json.msg });
+                        _context.next = 5;
+                        return __WEBPACK_IMPORTED_MODULE_7__model_track_tag__["a" /* default */].create({
+                            type: 1,
+                            value: req.body.name
+                        });
+
+                    case 5:
+                        trackTag = _context.sent;
+                        trackTagId = trackTag.id;
+
+                        if (!(tracking_json.status === 1)) {
+                            _context.next = 20;
+                            break;
+                        }
+
+                        result = tracking_json.data;
+                        i = 0;
+
+                    case 10:
+                        if (!(i < result.length)) {
+                            _context.next = 20;
+                            break;
+                        }
+
+                        item = result[i];
+
+                        if (!(item.tracking !== 'undefined' && item.identify !== undefined)) {
+                            _context.next = 17;
+                            break;
+                        }
+
+                        _context.next = 15;
+                        return __WEBPACK_IMPORTED_MODULE_6__model_track_number__["a" /* default */].create({
+                            from_tag: trackTagId,
+                            track: item.tracking,
+                            channel: item.identify
+                        });
+
+                    case 15:
+                        _context.next = 17;
+                        return Object(__WEBPACK_IMPORTED_MODULE_4__redis_track__["a" /* addNeedTrack */])(item.tracking);
+
+                    case 17:
+                        i++;
+                        _context.next = 10;
+                        break;
+
+                    case 20:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+    };
+}());
+
+router.get('/track/excel-list', function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(req, res) {
+        var excels;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_7__model_track_tag__["a" /* default */].findAll({
+                            type: 1
+                        });
+
+                    case 2:
+                        excels = _context2.sent;
+
+                        res.send(excels);
+
+                    case 4:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function (_x4, _x5) {
+        return _ref2.apply(this, arguments);
+    };
+}());
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return excelToJson; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_fs__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_fs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_node_xlsx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_node_xlsx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_node_xlsx__);
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+
+
+
+var excelToJson = function excelToJson(data) {
+    var stream = base64tostream(data.content);
+    __WEBPACK_IMPORTED_MODULE_0_fs___default.a.writeFileSync(__dirname + '/' + data.name, stream);
+    var workSheetsFromBuffer = __WEBPACK_IMPORTED_MODULE_1_node_xlsx___default.a.parse(__dirname + '/' + data.name);
+    return output(workSheetsFromBuffer, data.name);
+};
+function base64tostream(base64) {
+    var start = base64.indexOf(',');
+    var content = base64.substr(start + 1);
+    content = content.replace(' ', "+");
+    return Buffer.from(content, 'base64');
+}
+
+function output(workSheetsFromBuffer, excelName) {
+    var obj = workSheetsFromBuffer[0];
+    if (!(obj instanceof Object) || !(workSheetsFromBuffer[0].data instanceof Array)) {
+        return {
+            status: 0,
+            msg: 'Excel有误'
+        };
+    }
+    var titleArr = workSheetsFromBuffer[0].data[0];
+    //console.log("test", workSheetsFromBuffer[0].data)
+    var trackingIndex = titleArr.indexOf('发货追踪号');
+    var identifyIndex = titleArr.indexOf('平台标识');
+    var startTimeIndex = titleArr.indexOf('开始查询时间');
+    var endTimeIndex = titleArr.indexOf('结束查询时间');
+    if (trackingIndex === -1) {
+        return {
+            status: 0,
+            msg: '缺少发货追踪号'
+        };
+    }
+    var result = [];
+    workSheetsFromBuffer[0].data.forEach(function (item, index) {
+        if (index > 0) {
+            var startTime = void 0,
+                endTime = void 0;
+
+            var startTimeString = !!item[startTimeIndex] && item[startTimeIndex].replace(/_/g, '/');
+            var endTimeString = !!item[endTimeIndex] && item[endTimeIndex].replace(/_/g, '/');
+            if (!isNaN(new Date(startTimeString).getTime()) && !!new Date(startTimeString).getTime()) {
+                startTime = new Date(startTimeString).getTime();
+            } else {
+                startTime = new Date().getTime();
+            }
+
+            if (!isNaN(new Date(endTimeString).getTime()) && !!new Date(endTimeString).getTime()) {
+                endTime = new Date(endTimeString).getTime();
+            } else {
+                endTime = new Date().getTime() + 2592000000;
+            }
+            //console.log(typeof item[trackingIndex], item[trackingIndex]);
+            var arr = (item[trackingIndex] + '').split(/\s+/); // excel表有可能一个格里有多个追踪号
+
+            //console.log(arr);
+            result.push.apply(result, _toConsumableArray(arr.map(function (row) {
+                return {
+                    excelName: excelName,
+                    tracking: row,
+                    identify: item[identifyIndex],
+                    startTime: startTime,
+                    endTime: endTime,
+                    info: {},
+                    isSuc: false,
+                    isOnline: false
+                };
+            })));
+        }
+    });
+    return {
+        status: 1,
+        msg: '上传成功',
+        data: result
+    };
+}
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, "server/controller"))
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+module.exports = require("node-xlsx");
+
+/***/ }),
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mongoose__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mongoose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mongoose__);
+
+var trackingSchema = new __WEBPACK_IMPORTED_MODULE_0_mongoose___default.a.Schema({
+    tracking: String,
+    identify: String,
+    startTime: Number,
+    endTime: Number,
+    excelName: String,
+    info: Object,
+    isSuc: Boolean,
+    isOnline: Boolean
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_mongoose___default.a.model('Tracking', trackingSchema));
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+module.exports = require("async-redis");
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mysql__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sequelize__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sequelize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sequelize__);
+
+
+
+var TrackTag = __WEBPACK_IMPORTED_MODULE_0__mysql__["a" /* default */].define('tracking_tag', {
+    type: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.SMALLINT
+    },
+    value: {
+        type: __WEBPACK_IMPORTED_MODULE_1_sequelize___default.a.DataTypes.STRING
+    }
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (TrackTag);
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mongodb_excel_name_list__ = __webpack_require__(34);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_1_express__["Router"])();
+
+router.get('/excel-list', function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(req, res, next) {
+        var json;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.next = 2;
+                        return Object(__WEBPACK_IMPORTED_MODULE_2__mongodb_excel_name_list__["a" /* findExcelName */])();
+
+                    case 2:
+                        json = _context.sent;
+
+                        res.json(json);
+
+                    case 4:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+    };
+}());
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export createExcelName */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return findExcelName; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_excel_name__ = __webpack_require__(35);
+
+
+// 创建
+var createExcelName = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(doc) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        console.log(doc);
+                        __WEBPACK_IMPORTED_MODULE_1__model_excel_name__["a" /* default */].create(doc).then(function (root) {
+                            console.log(root);
+                        });
+
+                    case 2:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function createExcelName(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+var findExcelName = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var find;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__model_excel_name__["a" /* default */].find();
+
+                    case 2:
+                        find = _context2.sent;
+
+                        console.log(find);
+                        return _context2.abrupt('return', find);
+
+                    case 5:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function findExcelName() {
+        return _ref2.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mongoose__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mongoose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mongoose__);
+
+
+var excelNameSchema = new __WEBPACK_IMPORTED_MODULE_0_mongoose___default.a.Schema({
+    name: String
+});
+var ExcelName = __WEBPACK_IMPORTED_MODULE_0_mongoose___default.a.model('ExcelName', excelNameSchema);
+
+/* harmony default export */ __webpack_exports__["a"] = (ExcelName);
+
+/***/ }),
+/* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controller_track_info__ = __webpack_require__(37);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_1_express__["Router"])();
+
+router.get('/track/info', function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(req, res, next) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        res.json('查询已开启');
+
+                        _context.next = 3;
+                        return Object(__WEBPACK_IMPORTED_MODULE_2__controller_track_info__["a" /* get_info */])(req.query);
+
+                    case 3:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    function async(_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+    }
+
+    return async;
+}() // 更新到MongoDB
+);
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return get_info; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__log4js__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__carrier_trackingmore__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__carrier_aliexpress__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carrier_17track__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__carrier_ahpostwish__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__carrier_shunyou__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__carrier_yuntrack__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__channel__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__model_track_number__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__redis__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__redis_track_queue__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__mongodb_tracking_list__ = __webpack_require__(9);
+
+
+var process_track_number = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(track, channel) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        if (!(channel === 'cn')) {
+                            _context.next = 6;
+                            break;
+                        }
+
+                        _context.next = 3;
+                        return Object(__WEBPACK_IMPORTED_MODULE_3__carrier_aliexpress__["a" /* default */])(track);
+
+                    case 3:
+                        return _context.abrupt('return', _context.sent);
+
+                    case 6:
+                        _context.next = 8;
+                        return Object(__WEBPACK_IMPORTED_MODULE_4__carrier_17track__["a" /* default */])([track]);
+
+                    case 8:
+                        return _context.abrupt('return', _context.sent);
+
+                    case 9:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function process_track_number(_x, _x2) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+var get_info = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(query) {
+        var _this = this;
+
+        var where, tracks, trackIds, isFirst, isSecond, firstTrack, track, _loop, list_len2;
+
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        where = {};
+
+                        if (query.excelId !== undefined) {
+                            where.from_tag = query.excelId;
+                        }
+                        where.is_succ = 0;
+                        _context3.next = 5;
+                        return __WEBPACK_IMPORTED_MODULE_9__model_track_number__["a" /* default */].findAll({
+                            where: where
+                        });
+
+                    case 5:
+                        tracks = _context3.sent;
+                        trackIds = tracks.map(function (track) {
+                            return track.track;
+                        });
+                        _context3.next = 9;
+                        return Object(__WEBPACK_IMPORTED_MODULE_11__redis_track_queue__["a" /* push_tracks_queue */])(trackIds, query.excelId);
+
+                    case 9:
+                        // 未妥投的跟踪号是否是第一次出现
+                        isFirst = true;
+                        isSecond = false;
+                        firstTrack = '';
+                        track = null;
+                        _loop = /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                            var findOneResult, find_channel, result, is_suc, is_online, newTime;
+                            return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                                while (1) {
+                                    switch (_context2.prev = _context2.next) {
+                                        case 0:
+                                            _context2.next = 2;
+                                            return Object(__WEBPACK_IMPORTED_MODULE_12__mongodb_tracking_list__["a" /* findOne */])({ tracking: track });
+
+                                        case 2:
+                                            findOneResult = _context2.sent;
+
+
+                                            // 找到对应查询平台信息
+                                            find_channel = __WEBPACK_IMPORTED_MODULE_8__channel__["a" /* default */].find(function (item) {
+                                                return item.channel === findOneResult.identify;
+                                            });
+
+
+                                            if (!find_channel) {
+                                                console.error(track + ' ' + findOneResult.identify + ' channel not defined in channels');
+                                            }
+
+                                            console.log(findOneResult, find_channel);
+
+                                            if (!(findOneResult.startTime < new Date().getTime() && findOneResult.endTime > new Date().getTime())) {
+                                                _context2.next = 42;
+                                                break;
+                                            }
+
+                                            _context2.prev = 7;
+                                            _context2.next = 10;
+                                            return setTime(1000);
+
+                                        case 10:
+                                            console.log('get_track_info');
+
+                                            // 2. 获取追踪信息
+                                            _context2.next = 13;
+                                            return process_track_number(findOneResult.tracking, find_channel.platform);
+
+                                        case 13:
+                                            result = _context2.sent;
+
+                                            if (!(result.msg === 'suc')) {
+                                                _context2.next = 26;
+                                                break;
+                                            }
+
+                                            is_suc = result.is_suc;
+                                            is_online = result.is_online_length >= find_channel.node;
+                                            // 2.1 成功的话更新到MongoDB数据库
+
+                                            Object(__WEBPACK_IMPORTED_MODULE_12__mongodb_tracking_list__["b" /* update */])({ tracking: track, info: result, isSuc: is_suc, isOnline: is_online });
+
+                                            if (result.is_suc) {
+                                                _context2.next = 24;
+                                                break;
+                                            }
+
+                                            _context2.next = 21;
+                                            return Object(__WEBPACK_IMPORTED_MODULE_10__redis__["c" /* push_list_promise */])(track);
+
+                                        case 21:
+                                            console.log('未投妥，压回队列');
+
+                                            if (firstTrack === track) {
+                                                isSecond = true;
+                                            }
+                                            if (isFirst) {
+                                                firstTrack = track;
+                                                isFirst = false;
+                                            }
+
+                                        case 24:
+                                            _context2.next = 35;
+                                            break;
+
+                                        case 26:
+                                            // 出现了错误
+                                            console.log('请求频繁，压回队列');
+
+                                            // 压回队列
+                                            _context2.next = 29;
+                                            return Object(__WEBPACK_IMPORTED_MODULE_10__redis__["c" /* push_list_promise */])(track);
+
+                                        case 29:
+                                            //更换IP查询
+                                            c.exec('rasdial  /disconnect');
+                                            _context2.next = 32;
+                                            return setTime(5000);
+
+                                        case 32:
+                                            c.exec('rasdial vpn tb108 1111');
+                                            _context2.next = 35;
+                                            return setTime(5000);
+
+                                        case 35:
+                                            _context2.next = 40;
+                                            break;
+
+                                        case 37:
+                                            _context2.prev = 37;
+                                            _context2.t0 = _context2['catch'](7);
+
+                                            console.log('\u7A0B\u5E8F\u51FA\u73B0\u9519\u8BEF:' + _context2.t0.message);
+
+                                        case 40:
+                                            _context2.next = 51;
+                                            break;
+
+                                        case 42:
+                                            if (!(findOneResult.endTime < new Date().getTime())) {
+                                                _context2.next = 46;
+                                                break;
+                                            }
+
+                                            // 超时
+                                            console.log('结束时间已到');
+                                            _context2.next = 51;
+                                            break;
+
+                                        case 46:
+
+                                            console.log('未到查询时间，压回队列');
+                                            // 增加时间
+                                            newTime = findOneResult.startTime + 12 * 60 * 60 * 1000;
+
+                                            if (newTime < findOneResult.endTime) {
+                                                Object(__WEBPACK_IMPORTED_MODULE_12__mongodb_tracking_list__["b" /* update */])({ tracking: track, startTime: newTime });
+                                            }
+
+                                            _context2.next = 51;
+                                            return Object(__WEBPACK_IMPORTED_MODULE_10__redis__["c" /* push_list_promise */])(track);
+
+                                        case 51:
+                                            _context2.next = 53;
+                                            return Object(__WEBPACK_IMPORTED_MODULE_10__redis__["a" /* get_list_len */])();
+
+                                        case 53:
+                                            list_len = _context2.sent;
+
+                                            if (isSecond) {
+                                                list_len = 0;
+                                                isSecond = false;
+                                            }
+
+                                        case 55:
+                                        case 'end':
+                                            return _context2.stop();
+                                    }
+                                }
+                            }, _callee2, _this, [[7, 37]]);
+                        });
+
+                    case 14:
+                        _context3.next = 16;
+                        return Object(__WEBPACK_IMPORTED_MODULE_10__redis__["b" /* pop_list_promise */])();
+
+                    case 16:
+                        if (!(track = _context3.sent)) {
+                            _context3.next = 20;
+                            break;
+                        }
+
+                        return _context3.delegateYield(_loop(), 't0', 18);
+
+                    case 18:
+                        _context3.next = 14;
+                        break;
+
+                    case 20:
+                        _context3.next = 22;
+                        return Object(__WEBPACK_IMPORTED_MODULE_10__redis__["a" /* get_list_len */])();
+
+                    case 22:
+                        list_len2 = _context3.sent;
+
+                        console.log('remain queue length ' + list_len2);
+
+                    case 24:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this);
+    }));
+
+    return function get_info(_x3) {
+        return _ref2.apply(this, arguments);
+    };
+}();
+
+var process_current_track_queues = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee4() {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        Object(__WEBPACK_IMPORTED_MODULE_10__redis__["b" /* pop_list_promise */])();
+
+                    case 1:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, this);
+    }));
+
+    return function process_current_track_queues() {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var c = __webpack_require__(38);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function setTime(ms) {
+    return new Promise(function (succ, err) {
+        setTimeout(succ, ms);
+    });
+}
+
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+module.exports = require("child_process");
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+module.exports = require("log4js");
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+
+
+var request_track_result = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(testTrack) {
+        var res, is_suc, is_online_length;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.prev = 0;
+                        _context.next = 3;
+                        return axios.get('https://www.trackingmore.com/gettracedetail.php?tracknumber=' + testTrack);
+
+                    case 3:
+                        res = _context.sent;
+                        is_suc = isSuc(res.data);
+                        is_online_length = isOnlineTime(res.data);
+
+                        console.log("result", {
+                            is_suc: is_suc,
+                            is_online_length: is_online_length
+                        });
+                        return _context.abrupt('return', {
+                            is_suc: is_suc,
+                            is_online_length: is_online_length,
+                            msg: 'suc'
+                        });
+
+                    case 10:
+                        _context.prev = 10;
+                        _context.t0 = _context['catch'](0);
+                        return _context.abrupt('return', {
+                            msg: 'err'
+                        });
+
+                    case 13:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this, [[0, 10]]);
+    }));
+
+    return function request_track_result(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+/*
+   url:  https://www.trackingmore.com/gettracedetail.php?express=ubi-logistics&tracknumber=4006318016176704
+   methods:  get
+ */
+
+var axios = __webpack_require__(2);
+//let c = require('child_process');
+
+var testTrack = 'RO590836699CN';
+
+function isSuc(track_info) {
+    var jsonString = track_info.toLocaleLowerCase();
+    return jsonString.indexOf('delivered') !== -1 || jsonString.indexOf('妥投') !== -1 || jsonString.indexOf('签收') !== -1;
+}
+function isOnlineTime(track_info) {
+
+    var s = track_info.substring(2, track_info.length - 1);
+
+    var json = JSON.parse(s);
+
+    if (!!json.originCountryData) {
+        return json.originCountryData.trackinfo.length;
+    } else {
+        return 0;
+    }
+}
+
+/* unused harmony default export */ var _unused_webpack_default_export = (request_track_result);
+// request_track_result(testTrack);
+
+/***/ }),
+/* 41 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_cheerio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_cheerio__);
+
+
+var request_track_result = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(track) {
+        var res, $, _JSON$parse, data;
+
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.prev = 0;
+                        _context.next = 3;
+                        return axios.get('https://slw16.global.cainiao.com/detail.htm?mailNoList=' + track + '&_=' + new Date().getTime());
+
+                    case 3:
+                        res = _context.sent;
+                        $ = __WEBPACK_IMPORTED_MODULE_1_cheerio___default.a.load(res.data);
+                        _JSON$parse = JSON.parse($('#waybill_list_val_box').text()), data = _JSON$parse.data;
+
+                        console.log(JSON.stringify(data[0]));
+                        return _context.abrupt('return', data[0]);
+
+                    case 10:
+                        _context.prev = 10;
+                        _context.t0 = _context['catch'](0);
+                        throw _context.t0;
+
+                    case 13:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this, [[0, 10]]);
+    }));
+
+    return function request_track_result(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+// 速卖通线上发货
+
+
+/**
+ *  url: https://slw16.global.cainiao.com/trackRefreshRpc/refresh.json?mailNo=RB367740510SG&_=1517989097972
+ */
+var axios = __webpack_require__(2);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (request_track_result);
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports) {
+
+module.exports = require("cheerio");
+
+/***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (["Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)", "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)", "Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.35; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)", "Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)", "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)", "Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 1.0.3705; .NET CLR 1.1.4322)", "Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30)", "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.3 (Change: 287 c9dfb30)", "Mozilla/5.0 (X11; U; Linux; en-US) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.6", "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.2pre) Gecko/20070215 K-Ninja/2.1.1", "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9) Gecko/20080705 Firefox/3.0 Kapiko/3.0", "Mozilla/5.0 (X11; Linux i686; U;) Gecko/20070322 Kazehakase/0.4.5", "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.8) Gecko Fedora/1.9.0.8-1.fc10 Kazehakase/0.5.6", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20", "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52"]);
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+
+
+var get_result = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(trackList) {
+        var res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.prev = 0;
+                        _context.next = 3;
+                        return axios(request_track_result(trackList));
+
+                    case 3:
+                        res = _context.sent;
+
+                        console.log('suc', JSON.stringify(res.data));
+                        return _context.abrupt('return', res.data);
+
+                    case 8:
+                        _context.prev = 8;
+                        _context.t0 = _context['catch'](0);
+
+                        console.log("err", JSON.stringify(_context.t0.data));
+                        return _context.abrupt('return', new Error(_context.t0.data));
+
+                    case 12:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this, [[0, 8]]);
+    }));
+
+    return function get_result(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+// get_result('12345678900');
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+// wish邮
+var axios = __webpack_require__(2);
+
+function request_track_result(trackList) {
+    return {
+        url: 'https://www.shpostwish.com/apis/tracking/search',
+        method: 'POST',
+        headers: {
+            'Host': 'www.shpostwish.com',
+            'Content-Length': 21,
+            'Connection': 'keep-alive',
+            'Pragma': 'no-cache',
+            'Cache-Control': 'no-cache',
+            'Accept': 'application/json, text/javascript, */*; q=0.01',
+            'Origin': 'https://www.shpostwish.com',
+            'X-Requested-With': 'XMLHttpRequest',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept-Encoding': 'gzip, deflate',
+            'Accept-Language': 'zh-CN,zh;q=0.9 '
+        },
+        data: 'ids[]=' + trackList
+    };
+}
+
+/* unused harmony default export */ var _unused_webpack_default_export = (get_result);
+
+/***/ }),
+/* 45 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+
+
+var get_result = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(trackList) {
+        var res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.prev = 0;
+                        _context.next = 3;
+                        return axios(request_track_result(trackList));
+
+                    case 3:
+                        res = _context.sent;
+
+                        console.log('suc', JSON.stringify(res.data));
+                        return _context.abrupt('return', res.data);
+
+                    case 8:
+                        _context.prev = 8;
+                        _context.t0 = _context['catch'](0);
+
+                        console.log("err", JSON.stringify(_context.t0.data));
+                        return _context.abrupt('return', new Error(_context.t0.data));
+
+                    case 12:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this, [[0, 8]]);
+    }));
+
+    return function get_result(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+//get_result('SYUA000180223');
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+// 顺友
+
+var axios = __webpack_require__(2);
+
+function request_track_result(trackList) {
+    return {
+        url: 'http://www.sypost.net/query',
+        method: 'POST',
+        headers: {
+            'Host': 'www.sypost.net',
+            'Connection': 'close',
+            'Pragma': 'no-cache',
+            'Cache-Control': 'no-cache',
+            'Accept': 'application/json, text/javascript, */*; q=0.01',
+            'Origin': 'www.sypost.net',
+            'X-Requested-With': 'XMLHttpRequest',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Referer': 'http://www.sypost.net/search?orderNo=' + trackList,
+            'Accept-Encoding': 'gzip, deflate',
+            'Accept-Language': 'zh-CN,zh;q=0.9 '
+        },
+        // data:{
+        //     'connotNo':'SYUA000180223'
+        // },
+        params: {
+            connotNo: trackList
+        }
+    };
+}
+
+/* unused harmony default export */ var _unused_webpack_default_export = (get_result);
+
+/***/ }),
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+
+
+var get_result = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(trackList) {
+        var res;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.prev = 0;
+                        _context.next = 3;
+                        return axios(request_track_result(trackList));
+
+                    case 3:
+                        res = _context.sent;
+
+                        console.log('suc', JSON.stringify(res.data));
+                        return _context.abrupt('return', res.data);
+
+                    case 8:
+                        _context.prev = 8;
+                        _context.t0 = _context['catch'](0);
+
+                        console.log("err", JSON.stringify(_context.t0.data));
+                        return _context.abrupt('return', new Error(_context.t0.data));
+
+                    case 12:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this, [[0, 8]]);
+    }));
+
+    return function get_result(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+// get_result('RL754785561CN');
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+// 云途 返回html
+var axios = __webpack_require__(2);
+
+function request_track_result(trackList) {
+    return {
+        url: 'http://www.yuntrack.com/Track/PartialDetail',
+        method: 'POST',
+        headers: {
+            'Host': 'www.yuntrack.com',
+            'Content-Length': 27,
+            'Connection': 'close',
+            'Pragma': 'no-cache',
+            'Cache-Control': 'no-cache',
+            'Accept': '*/*',
+            'Origin': 'http://www.yuntrack.com',
+            'X-Requested-With': 'XMLHttpRequest',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Referer': 'http://www.yuntrack.com/track/detail?id' + trackList,
+            'Accept-Encoding': 'gzip, deflate',
+            'Accept-Language': 'zh-CN,zh;q=0.9 '
+        },
+        data: 'numbers[]=' + trackList
+    };
+}
+
+/* unused harmony default export */ var _unused_webpack_default_export = (get_result);
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+module.exports = require("util");
+
+/***/ }),
+/* 48 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export pop_track_queue */
+/* unused harmony export push_track_queue */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return push_tracks_queue; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(5);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+/**
+ * 未处理的跟踪号队列
+ * @type {string}
+ */
+var TRACK_QUEUE = 'track_queue';
+
+var pop_track_queue = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(queue) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].lpop(TRACK_QUEUE + ':' + queue);
+
+                    case 2:
+                        return _context.abrupt('return', _context.sent);
+
+                    case 3:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function pop_track_queue(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+var push_track_queue = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(track, queue) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].lpush(TRACK_QUEUE + ':' + queue, track);
+
+                    case 2:
+                        return _context2.abrupt('return', _context2.sent);
+
+                    case 3:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function push_track_queue(_x2, _x3) {
+        return _ref2.apply(this, arguments);
+    };
+}();
+
+var push_tracks_queue = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(tracks, queue) {
+        var key;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        key = TRACK_QUEUE;
+
+                        if (queue) {
+                            key = TRACK_QUEUE + ':' + queue;
+                        }
+                        tracks.unshift(key);
+                        _context3.next = 5;
+                        return __WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */].lpush.apply(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */], tracks);
+
+                    case 5:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this);
+    }));
+
+    return function push_tracks_queue(_x4, _x5) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+/***/ }),
+/* 49 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controller_redis__ = __webpack_require__(14);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+// 给erp的api
+
+
+
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_1_express__["Router"])();
+
+router.post('/erp/post', function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(req, res, next) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        console.log('req.body', req.body);
+                        req.body && req.body.forEach(function (item) {
+
+                            Object(__WEBPACK_IMPORTED_MODULE_2__controller_redis__["d" /* redis_erp */])(item);
+                        });
+                        res.json('推送成功');
+
+                    case 3:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+    };
+}());
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__carrier_17track__ = __webpack_require__(13);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_1_express__["Router"])();
+// import request_track_result from './carrier/aliexpress'
+
+
+router.get('/tttt', function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(req, res, next) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.next = 2;
+                        return Object(__WEBPACK_IMPORTED_MODULE_2__carrier_17track__["a" /* default */])(["MXAHN6032212697YQ"]);
+
+                    case 2:
+                        res.send('ok');
+
+                    case 3:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+    };
+}());
+router.get('/proxy', function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(req, res, next) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+
+                        res.send('ok');
+
+                    case 1:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function (_x4, _x5, _x6) {
+        return _ref2.apply(this, arguments);
+    };
+}());
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 51 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_track_number__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_day_track__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_channel_queue__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__channel__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__redis_track__ = __webpack_require__(11);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+var router = Object(__WEBPACK_IMPORTED_MODULE_1_express__["Router"])();
+
+
+
+
+
+
+
+router.get('/track-list', function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(req, res) {
+        var where, page, pageSize, result;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        where = {};
+
+                        if (req.query.track) {
+                            where.track = req.query.track.split(',');
+                        }
+                        if (req.query.channels) {
+                            where.channel = req.query.channels.split(',');
+                        }
+                        page = 1;
+
+                        if (req.query.page) {
+                            page = req.query.page;
+                        }
+                        pageSize = 20;
+
+                        if (req.query.pageSize) {
+                            pageSize = req.query.pageSize;
+                        }
+                        _context.next = 9;
+                        return Object(__WEBPACK_IMPORTED_MODULE_2__service_track_number__["b" /* track_list */])(where, page, pageSize);
+
+                    case 9:
+                        result = _context.sent;
+
+                        res.json(result);
+
+                    case 11:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, this);
+    }));
+
+    return function (_x, _x2) {
+        return _ref.apply(this, arguments);
+    };
+}());
+
+router.get('/reprocess_tracks', function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2(req, res) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return Object(__WEBPACK_IMPORTED_MODULE_2__service_track_number__["a" /* reprocess_tracks */])();
+
+                    case 2:
+                        res.json({ ok: 'ok' });
+
+                    case 3:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function (_x3, _x4) {
+        return _ref2.apply(this, arguments);
+    };
+}());
+
+router.get('/process_day_tracks', function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(req, res) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        _context3.next = 2;
+                        return Object(__WEBPACK_IMPORTED_MODULE_3__service_day_track__["c" /* process_day_tracks */])();
+
+                    case 2:
+                        res.json({ ok: 'ok' });
+
+                    case 3:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this);
+    }));
+
+    return function (_x5, _x6) {
+        return _ref3.apply(this, arguments);
+    };
+}());
+
+router.get('/channels-queue', function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee4(req, res) {
+        var queues;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        _context4.next = 2;
+                        return Object(__WEBPACK_IMPORTED_MODULE_4__service_channel_queue__["b" /* channels_queue */])();
+
+                    case 2:
+                        queues = _context4.sent;
+
+                        res.json(queues);
+
+                    case 4:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, this);
+    }));
+
+    return function (_x7, _x8) {
+        return _ref4.apply(this, arguments);
+    };
+}());
+router.get('/channel-queue', function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee5(req, res) {
+        var queues;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+            while (1) {
+                switch (_context5.prev = _context5.next) {
+                    case 0:
+                        _context5.next = 2;
+                        return Object(__WEBPACK_IMPORTED_MODULE_4__service_channel_queue__["a" /* channel_queue */])(req.query.channel);
+
+                    case 2:
+                        queues = _context5.sent;
+
+                        res.json(queues);
+
+                    case 4:
+                    case 'end':
+                        return _context5.stop();
+                }
+            }
+        }, _callee5, this);
+    }));
+
+    return function (_x9, _x10) {
+        return _ref5.apply(this, arguments);
+    };
+}());
+
+router.get('/channels', function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee6(req, res) {
+        var channels;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+            while (1) {
+                switch (_context6.prev = _context6.next) {
+                    case 0:
+                        channels = Object.keys(__WEBPACK_IMPORTED_MODULE_5__channel__["a" /* default */]).map(function (channel) {
+                            return Object.assign({}, __WEBPACK_IMPORTED_MODULE_5__channel__["a" /* default */][channel], { channel: channel });
+                        });
+
+                        res.json(channels);
+
+                    case 2:
+                    case 'end':
+                        return _context6.stop();
+                }
+            }
+        }, _callee6, this);
+    }));
+
+    return function (_x11, _x12) {
+        return _ref6.apply(this, arguments);
+    };
+}());
+
+router.get('/channels-worker', function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee8(req, res) {
+        var _this = this;
+
+        var channels;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+            while (1) {
+                switch (_context8.prev = _context8.next) {
+                    case 0:
+                        _context8.next = 2;
+                        return Promise.all(Object.keys(__WEBPACK_IMPORTED_MODULE_5__channel__["a" /* default */]).map(function () {
+                            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee7(channel) {
+                                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+                                    while (1) {
+                                        switch (_context7.prev = _context7.next) {
+                                            case 0:
+                                                _context7.t0 = Object;
+                                                _context7.t1 = {};
+                                                _context7.t2 = __WEBPACK_IMPORTED_MODULE_5__channel__["a" /* default */][channel];
+                                                _context7.t3 = { channel: channel };
+                                                _context7.next = 6;
+                                                return Object(__WEBPACK_IMPORTED_MODULE_6__redis_track__["b" /* channel_spider_worker_get */])(channel);
+
+                                            case 6:
+                                                _context7.t4 = _context7.sent;
+                                                _context7.t5 = {
+                                                    value: _context7.t4
+                                                };
+                                                return _context7.abrupt('return', _context7.t0.assign.call(_context7.t0, _context7.t1, _context7.t2, _context7.t3, _context7.t5));
+
+                                            case 9:
+                                            case 'end':
+                                                return _context7.stop();
+                                        }
+                                    }
+                                }, _callee7, _this);
+                            }));
+
+                            return function (_x15) {
+                                return _ref8.apply(this, arguments);
+                            };
+                        }()));
+
+                    case 2:
+                        channels = _context8.sent;
+
+                        res.json(channels);
+
+                    case 4:
+                    case 'end':
+                        return _context8.stop();
+                }
+            }
+        }, _callee8, this);
+    }));
+
+    return function (_x13, _x14) {
+        return _ref7.apply(this, arguments);
+    };
+}());
+
+router.post('/channels-worker', function () {
+    var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee10(req, res) {
+        var _this2 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+            while (1) {
+                switch (_context10.prev = _context10.next) {
+                    case 0:
+                        _context10.next = 2;
+                        return req.body.forEach(function () {
+                            var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee9(_ref10) {
+                                var channel = _ref10.channel,
+                                    value = _ref10.value;
+                                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
+                                    while (1) {
+                                        switch (_context9.prev = _context9.next) {
+                                            case 0:
+                                                _context9.next = 2;
+                                                return Object(__WEBPACK_IMPORTED_MODULE_6__redis_track__["c" /* channel_spider_worker_set */])(channel, value);
+
+                                            case 2:
+                                            case 'end':
+                                                return _context9.stop();
+                                        }
+                                    }
+                                }, _callee9, _this2);
+                            }));
+
+                            return function (_x18) {
+                                return _ref11.apply(this, arguments);
+                            };
+                        }());
+
+                    case 2:
+                        res.json({ message: '保存成功' });
+
+                    case 3:
+                    case 'end':
+                        return _context10.stop();
+                }
+            }
+        }, _callee10, this);
+    }));
+
+    return function (_x16, _x17) {
+        return _ref9.apply(this, arguments);
+    };
+}());
+
+router.get('/day-queue-panes', function () {
+    var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee11(req, res) {
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
+            while (1) {
+                switch (_context11.prev = _context11.next) {
+                    case 0:
+                        _context11.t0 = res;
+                        _context11.next = 3;
+                        return Object(__WEBPACK_IMPORTED_MODULE_3__service_day_track__["b" /* day_queue_panes */])();
+
+                    case 3:
+                        _context11.t1 = _context11.sent;
+
+                        _context11.t0.json.call(_context11.t0, _context11.t1);
+
+                    case 5:
+                    case 'end':
+                        return _context11.stop();
+                }
+            }
+        }, _callee11, this);
+    }));
+
+    return function (_x19, _x20) {
+        return _ref12.apply(this, arguments);
+    };
+}());
+
+router.get('/day-queue-data', function () {
+    var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee12(req, res) {
+        var data;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+            while (1) {
+                switch (_context12.prev = _context12.next) {
+                    case 0:
+                        _context12.next = 2;
+                        return Object(__WEBPACK_IMPORTED_MODULE_3__service_day_track__["a" /* day_queue_data */])(req.query.day);
+
+                    case 2:
+                        data = _context12.sent;
+
+                        res.json(data);
+
+                    case 4:
+                    case 'end':
+                        return _context12.stop();
+                }
+            }
+        }, _callee12, this);
+    }));
+
+    return function (_x21, _x22) {
+        return _ref13.apply(this, arguments);
+    };
+}());
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+module.exports = require("worker-nodes");
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return channels_queue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return channel_queue; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__redis_queue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__channel__ = __webpack_require__(4);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+var channels_queue = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return Promise.all(Object.keys(__WEBPACK_IMPORTED_MODULE_2__channel__["a" /* default */]).map(function () {
+                            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(channel) {
+                                return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                                    while (1) {
+                                        switch (_context.prev = _context.next) {
+                                            case 0:
+                                                _context.t0 = Object;
+                                                _context.next = 3;
+                                                return channel_queue(channel);
+
+                                            case 3:
+                                                _context.t1 = _context.sent;
+                                                _context.t2 = {
+                                                    queues: _context.t1
+                                                };
+                                                _context.t3 = __WEBPACK_IMPORTED_MODULE_2__channel__["a" /* default */][channel];
+                                                return _context.abrupt('return', _context.t0.assign.call(_context.t0, _context.t2, _context.t3));
+
+                                            case 7:
+                                            case 'end':
+                                                return _context.stop();
+                                        }
+                                    }
+                                }, _callee, _this);
+                            }));
+
+                            return function (_x) {
+                                return _ref2.apply(this, arguments);
+                            };
+                        }()));
+
+                    case 2:
+                        return _context2.abrupt('return', _context2.sent);
+
+                    case 3:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function channels_queue() {
+        return _ref.apply(this, arguments);
+    };
+}();
+var channel_queue = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3(channel) {
+        var queue;
+        return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        queue = new __WEBPACK_IMPORTED_MODULE_1__redis_queue__["a" /* default */]('wait-process-track-' + channel);
+                        _context3.next = 3;
+                        return queue.elements();
+
+                    case 3:
+                        return _context3.abrupt('return', _context3.sent);
+
+                    case 4:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this);
+    }));
+
+    return function channel_queue(_x2) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_day_track__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_track_number__ = __webpack_require__(15);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+
+
+var schedule = __webpack_require__(56);
+
+
+// 定时任务，每天0点0分定时执行
+schedule.scheduleJob({ hour: 0, minute: 0 }, _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee() {
+    return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+            switch (_context.prev = _context.next) {
+                case 0:
+                    _context.next = 2;
+                    return Object(__WEBPACK_IMPORTED_MODULE_2__service_track_number__["a" /* reprocess_tracks */])();
+
+                case 2:
+                case 'end':
+                    return _context.stop();
+            }
+        }
+    }, _callee, this);
+})));
+
+schedule.scheduleJob("20 * * * * *", _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+    return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+            switch (_context2.prev = _context2.next) {
+                case 0:
+                case 'end':
+                    return _context2.stop();
+            }
+        }
+    }, _callee2, this);
+}))
+// await reprocess_tracks();
+);
+
+schedule.scheduleJob("30 25 11 * * *", _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.mark(function _callee3() {
+    return __WEBPACK_IMPORTED_MODULE_0__opt_source_code_tracking_number_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+            switch (_context3.prev = _context3.next) {
+                case 0:
+                    console.log('process_day_tracks');
+                    Object(__WEBPACK_IMPORTED_MODULE_1__service_day_track__["c" /* process_day_tracks */])();
+
+                case 2:
+                case 'end':
+                    return _context3.stop();
+            }
+        }
+    }, _callee3, this);
+})));
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports) {
+
+module.exports = require("node-schedule");
+
+/***/ })
+/******/ ]);
+//# sourceMappingURL=main.map

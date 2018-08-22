@@ -1,0 +1,44 @@
+import {Router} from 'express'
+import {excelToJson} from '../controller/excel-to-json';
+import {update} from '../mongodb/tracking-list';
+import {addNeedTrack} from '../redis/track'
+import channelJson from '../channel'
+import TrackNumber from '../model/track_number';
+import TrackTag from '../model/track_tag';
+
+const router = Router();
+
+
+router.post('/upload/track/excel', async function (req, res, next) {
+    const tracking_json = excelToJson(req.body);
+    console.log(tracking_json.data);
+    res.send({status: 'success', msg: tracking_json.msg});
+    const trackTag = await TrackTag.create({
+        type:1,
+        value:req.body.name
+    });
+    const trackTagId = trackTag.id;
+    if (tracking_json.status === 1) {
+        let result = tracking_json.data;
+        for(let i =0; i < result.length; i++){
+            let item = result[i];
+            if (item.tracking !== 'undefined' && item.identify !== undefined) {
+                await TrackNumber.create({
+                    from_tag:trackTagId,
+                    track:item.tracking,
+                    channel:item.identify
+                });
+                await addNeedTrack(item.tracking);
+            }
+        }
+    }
+});
+
+router.get('/track/excel-list', async function(req, res){
+    const excels = await TrackTag.findAll({
+        type:1
+    });
+    res.send(excels);
+});
+
+export default router

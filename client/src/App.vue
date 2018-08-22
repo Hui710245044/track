@@ -1,0 +1,85 @@
+<template>
+    <div id="app">
+        <div id="left">
+            <div id="logo"></div>
+            <el-menu :router="true">
+                <el-menu-item v-for="menu in menus"
+                              :index="`${menu.router}`"
+                              :key="menu.name"
+                >{{menu.name}}
+                </el-menu-item>
+            </el-menu>
+        </div>
+        <div id="content">
+            <router-view/>
+        </div>
+    </div>
+</template>
+
+<script>
+    window.object2query = function (obj) {
+        return Object.keys(obj).map(field => {
+            return `${field}=${obj[field]}`;
+        }).join('&');
+    };
+    export default {
+        name: 'App',
+        data(){
+            return {
+                menus: [
+                    {name: '登录', router: '/login'},
+                    {name: '跟踪号', router: '/track-mark'},
+                    {name: '物流商管理', router: '/transport'},
+                    {name: '爬虫系统', router: '/reptile-system'},
+
+                    {name: '首页', router: '/'},
+                 {name: '跟踪号列表', router: '/track-list'},
+                 {name: '每日队列', router: '/day-queue'},
+                 {name: '物流平台队列', router: '/channel-queue'},
+                 {name: '设置', router: '/setting'},
+                ]
+            }
+        }
+    }
+</script>
+
+<style lang="stylus">
+    .inline {
+        display: inline-block;
+        &.el-input {
+            width: auto !important;
+        }
+    }
+
+    * {
+        list-style none;
+        box-sizing border-box;
+    }
+
+    html, body, #app {
+        margin 0;
+        padding: 0;
+        height 100%;
+        width: 100%;
+        position: relative;
+    }
+
+    #left {
+        width: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        border-right: 2px solid #dddddd;
+        overflow-y: auto;
+    }
+
+    #content {
+        position: absolute;
+        top: 0;
+        left: 200px;
+        right: 0;
+        bottom: 0;
+        padding: 15px;
+    }
+</style>
