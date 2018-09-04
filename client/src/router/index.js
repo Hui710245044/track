@@ -45,7 +45,7 @@ export default new Router({
     {
       path: '/day-queue',
       component(resolve) {
-        require(['@/components/day-queue'], resolve);
+        require(['@/pages/day-queue'], resolve);
       }
     },
     {

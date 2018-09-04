@@ -6,7 +6,7 @@
                 @cell-click="handle_cell"
                 highlight-current-row>
             <el-table-column
-                    prop="id"
+                    prop="name"
                     label="物流名称"  align="center">
             </el-table-column>
             <el-table-column

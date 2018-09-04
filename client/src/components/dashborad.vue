@@ -151,7 +151,7 @@
         created(){
             this.refresh_excel_list();
             this.$http.get('/transports').then(res=>{
-                    console.log('res',res.data);
+                    // console.log('res',res.data);
             })
         },
         computed:{

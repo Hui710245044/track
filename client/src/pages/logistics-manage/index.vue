@@ -11,9 +11,9 @@
           @current-change="handleCurrentChange"
           :current-page="currentPage"
           :page-sizes="[20,50, 100, 150, 200]"
-          :page-size="50"
+          :page-size="20"
           layout="total, sizes, prev, pager, next, jumper"
-          :total="480">
+          :total="count">
         </el-pagination>
       </div>
     </div>
@@ -21,7 +21,6 @@
     <div>
         <right-tabs></right-tabs>
     </div>
-
   </div>
 </template>
 
@@ -31,6 +30,7 @@
     data() {
       return {
         actions:actions,
+        count:0,
         search_data:{
           page:1,
           pageSize:20,
@@ -48,18 +48,18 @@
         this.search();
       },
       search(){
-        this.actions.search.call(this);
+        this.actions.search.call(this,this.search_data);
         // console.log(this);
       },
       handleSizeChange(val) {
         this.search_data.pageSize = val;
         this.init();
-        console.log(`每页 ${val} 条`);
+        // console.log(`每页 ${val} 条`);
       },
       handleCurrentChange(val) {
         this.search_data.page = val;
         this.init();
-        console.log(`当前页: ${val}`);
+        // console.log(`当前页: ${val}`);
       }
     },
     components: {

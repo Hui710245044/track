@@ -57,6 +57,7 @@ router.post('/api/erp', async function(req, res){
         channel :erp.identify,  //平台
         is_online:false,        // 默认false
         is_succ:false,          // 默认false
+
         from_tag:0,              //其他是对应 exls的
         stime:erp.startTime,    // 开始上网抓取时间
         ptime:erp.onlineEndTime,    //上网截止时间
